@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2017 Martijn Brekhof. All rights reserved.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/context"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconContext"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/codec_info"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconUp"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/up"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconInfo"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/info"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconLeft"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/left"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/select"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconSelect"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/select"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconRight"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/right"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconBack"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/back"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/down"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconDown"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/down"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/osd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="?attr/iconMenu"
+        app:tint="?attr/remoteButtonColorFilter"
+        android:contentDescription="@string/osd"/>
+</merge>

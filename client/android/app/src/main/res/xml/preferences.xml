@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2015 Synced Synapse. All rights reserved.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<!--suppress AndroidElementNotAllowed -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/remote">
+        <SwitchPreferenceCompat
+            android:key="pref_switch_to_remote_after_media_start"
+            android:title="@string/switch_to_remote"
+            android:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_keep_remote_above_lockscreen"
+            android:title="@string/keep_remote_above_lockscreen"
+            android:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_use_hardware_volume_keys"
+            android:title="@string/use_hardware_volume_keys"
+            android:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_vibrate_remote_buttons"
+            android:title="@string/vibrate_on_remote"
+            android:defaultValue="false"/>
+
+        <MultiSelectListPreference
+            android:key="pref_remote_bar_items"
+            android:title="@string/remote_bar_items"
+            android:entries="@array/entries_remote_bar_items"
+            android:entryValues="@array/entry_values_remote_bar_items"
+            android:defaultValue="@array/default_values_remote_bar_items"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/application">
+        <ListPreference
+            android:key="pref_theme"
+            android:title="@string/theme"
+            android:entries="@array/themes_array"
+            android:entryValues="@array/themes_values_array"
+            android:defaultValue="0"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_keep_screen_on"
+            android:title="@string/pref_keep_screen_on"
+            android:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_show_notification"
+            android:title="@string/show_notification"
+            android:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_pause_during_calls"
+            android:title="@string/pause_during_calls"
+            android:defaultValue="false"
+            android:dependency="pref_show_notification"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_show_nowplayingpanel"
+            android:title="@string/show_now_playing_panel"
+            android:summary="@string/show_now_playing_panel_summary"
+            android:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_disable_local_play"
+            android:title="@string/disable_local_playback_support"
+            android:summary="@string/disable_local_playback_support_summary"
+            android:defaultValue="false"/>
+
+        <MultiSelectListPreference
+            android:key="pref_nav_drawer_items"
+            android:title="@string/nav_drawer_items"
+            android:entries="@array/entries_nav_drawer_items"
+            android:entryValues="@array/entry_values_nav_drawer_items"
+            android:defaultValue="@array/entry_values_nav_drawer_items"/>
+
+        <MultiSelectListPreference
+            android:key="pref_download_conn_types"
+            android:title="@string/download_network_types_title"
+            android:summary="@string/download_network_types_summary"
+            android:entries="@array/entries_download_media_items"
+            android:entryValues="@array/entry_values_download_media_items"
+            android:defaultValue="@array/default_values_download_media_items"/>
+
+        <Preference
+            android:key="pref_about"
+            android:title="@string/about"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

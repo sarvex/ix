@@ -1,0 +1,12 @@
+[Unit]
+Description=CouchPotato application instance
+After=network.target
+
+[Service]
+ExecStart=/var/lib/CouchPotatoServer/CouchPotato.py
+Type=simple
+User=couchpotato
+Group=couchpotato
+
+[Install]
+WantedBy=multi-user.target

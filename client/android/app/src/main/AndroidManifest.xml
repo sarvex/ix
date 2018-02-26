@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.xbmc.kore">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- Dangerous permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name">
+
+        <!-- Activities -->
+        <activity
+            android:name="org.xbmc.kore.ui.sections.remote.RemoteActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+
+            <!-- Intent filter for sharing from youtube player -->
+            <intent-filter android:label="@string/play_on_kodi">
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+
+            <!-- Intent filter for sharing youtube URLs -->
+            <intent-filter android:label="@string/play_on_kodi">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="youtube.com"/>
+                <data android:host="m.youtube.com"/>
+                <data android:host="www.youtube.com"/>
+                <data android:host="vimeo.com"/>
+                <data android:host="www.vimeo.com"/>
+                <data android:host="player.vimeo.com"/>
+                <data android:host="www.svtplay.se"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="org.xbmc.kore.ui.sections.hosts.HostManagerActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.hosts.AddHostActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.hosts.EditHostActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.video.MoviesActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.video.TVShowsActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.audio.MusicActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.addon.AddonsActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.settings.SettingsActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.file.FileActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.video.PVRActivity"/>
+        <activity android:name="org.xbmc.kore.ui.sections.video.AllCastActivity"/>
+        <activity android:name=".ui.sections.favourites.FavouritesActivity" />
+
+        <!-- Providers -->
+        <provider
+            android:name="org.xbmc.kore.provider.MediaProvider"
+            android:authorities="org.xbmc.kore.provider"
+            android:exported="false"/>
+
+        <!-- Services -->
+        <service android:name=".service.library.LibrarySyncService"
+            android:exported="false"/>
+        <service android:name="org.xbmc.kore.service.ConnectionObserversManagerService"
+            android:exported="false"/>
+        <service android:name="org.xbmc.kore.service.IntentActionsService"
+            android:exported="false"/>
+
+        <uses-library android:required="false" android:name="com.sec.android.app.multiwindow"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632.0dip" />
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598.0dip" />
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="632.0dip" />
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="598.0dip" />
+
+        <meta-data android:name="com.lge.support.SPLIT_WINDOW" android:value="true" />
+    </application>
+
+</manifest>

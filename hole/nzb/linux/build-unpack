@@ -1,0 +1,195 @@
+#!/bin/bash
+#
+#  This file is part of nzbget. See <http://nzbget.net>.
+#
+#  Copyright (C) 2015-2016 Andrey Prygunkov <hugbug@users.sourceforge.net>
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# Setup strict bash error handling
+set -o nounset
+set -o errexit
+
+# Uncomment next line for debuging
+#set -x
+
+ALLTARGETS="i686 x86_64 armel armhf mipsel mipseb ppc6xx ppc500 x86_64-bsd"
+ROOT=`pwd`
+OUTPUTDIR=$ROOT/setup
+BUILDDIR=temp
+
+echo "Usage:"
+echo "  $(basename $0) [targets] [clean] [unpacker]"
+echo "     unpacker  - unrar, 7zip."
+echo
+
+
+# Parsing command line
+
+TARGETS=""
+CLEAN=no
+UNPACKERS=""
+COREX="1"
+
+for PARAM in "$@"
+do
+    case $PARAM in
+        clean|cleanup)
+            CLEAN=yes
+            ;;
+        unrar|7zip)
+            # using xargs to trim spaces
+            UNPACKERS=`echo "$UNPACKERS $PARAM" | xargs`
+            ;;
+        core[1-9])
+            COREX="${PARAM:4}"
+            ;;
+        *)
+            if [ -d toolchain/$PARAM ]; then
+                TARGETS=`echo "$TARGETS $PARAM" | xargs`
+            else
+                echo "Invalid parameter: $PARAM"
+                exit 1
+            fi
+            ;;
+    esac
+
+done
+
+if [ "$TARGETS" == "" ]; then
+    TARGETS="$ALLTARGETS"
+fi
+
+if [ "$UNPACKERS" == "" ]; then
+    UNPACKERS="unrar 7zip"
+fi
+
+echo "Active configuration:"
+echo "  targets   : $TARGETS"
+echo "  unpackers : $UNPACKERS"
+echo "  cleanup   : $CLEAN"
+echo "  cores     : $COREX"
+echo 
+
+
+# Building
+
+for UNPACKER in $UNPACKERS; do
+
+case $UNPACKER in
+    unrar)
+        EXENAME=unrar
+        ;;
+    7zip)
+        EXENAME=7za
+        ;;
+esac
+
+if [ "$CLEAN" == "yes" ]; then
+    rm -r -f $OUTPUTDIR/$EXENAME-*
+fi
+
+
+for TARGET in $TARGETS; do
+
+    TOOLCHAIN_ROOT=$ROOT/toolchain/$TARGET
+    TOOLPATH=$TOOLCHAIN_ROOT/output/host/usr/bin
+
+    if [[ $TARGET == *-bsd ]]; then
+        TARGET="${TARGET%-bsd}"
+        TOOLNAME=pc-freebsd9
+        PLATSUFF="-bsd"
+    else
+        TOOLNAME=linux
+        PLATSUFF=""
+    fi
+
+    case $TARGET in
+        mipsel|i?86|x86_64)
+            ARCH=$TARGET
+            ENDIAN=little
+            ;;
+        mipseb)
+            ARCH=mips
+            ENDIAN=big
+            ;;
+        arm*)
+            ARCH=arm
+            ENDIAN=little
+            ;;
+        ppc*)
+            ARCH=powerpc
+            ENDIAN=big
+            ;;
+    esac
+
+    rm -rf "$ROOT/$BUILDDIR/$UNPACKER"
+    cd $ROOT/$BUILDDIR
+
+    case $UNPACKER in
+        unrar)
+            tar xzf unrarsrc-*.tar.gz
+            cd unrar
+            sed 's:^CXX=:#CXX=:' -i makefile
+            sed 's:^STRIP=strip:#STRIP=strip:' -i makefile
+            sed 's:^LDFLAGS=:LDFLAGS=-static :' -i makefile
+            sed 's:^CXXFLAGS=-O2:#CXXFLAGS=-O2:' -i makefile
+            if [ "$ENDIAN" = "big" ]; then
+                sed 's:^DEFINES=:DEFINES=-DBIG_ENDIAN :' -i makefile
+            fi
+            if [ "$PLATSUFF" != "-bsd" ]; then
+                sed 's:^DEFINES=:DEFINES=-DUSE_FALLOCATE :' -i makefile
+            fi
+
+            EXEDIR=
+            LICENSE=license.txt
+            BUILDTARGET=
+            ;;
+        7zip)
+            tar xjf p7zip_*_src_all.tar.bz2
+            rm -rf 7zip
+            mkdir 7zip
+            mv p7zip_*/* 7zip
+            find p7zip_* -maxdepth 0 -type d -exec rm -r {} \;
+            cd 7zip
+            rm makefile.machine
+            cp makefile.linux_any_cpu_gcc_4.X makefile.machine
+            sed 's:^CXX=g++:#CXX=g++:' -i makefile.machine
+            sed 's:^CC=gcc:#CC=gcc:' -i makefile.machine
+
+            EXEDIR=bin/
+            LICENSE=DOC/License.txt
+            BUILDTARGET=$EXENAME
+            ;;
+    esac
+
+    cd $ROOT/$BUILDDIR/$UNPACKER
+
+    make clean
+
+    CXX=$TOOLPATH/$ARCH-$TOOLNAME-g++ \
+        CC=$TOOLPATH/$ARCH-$TOOLNAME-gcc \
+        STRIP=$TOOLPATH/$ARCH-$TOOLNAME-strip \
+        CXXFLAGS=-O2 \
+        LDFLAGS=-static \
+        make -j $COREX $BUILDTARGET
+
+    cp $EXEDIR$EXENAME ../../setup/$EXENAME-$TARGET$PLATSUFF
+    cp $LICENSE ../../setup/license-$UNPACKER.txt
+
+    echo "Completed build for $TARGET$PLATSUFF ($UNPACKER)"
+done
+done
+

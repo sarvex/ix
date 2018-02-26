@@ -1,0 +1,127 @@
+<%inherit file="base.html" />
+<%!
+        from mylar import db
+        import mylar
+%>
+
+<%def name="headerIncludes()">
+	<div id="subhead_container">
+			&nbsp;
+	</div>	
+	<a href="manage" class="back">&laquo; Back to manage overview</a>
+</%def>
+
+
+<%def name="body()">
+	<div id="manageheader" class="title">
+		<h1 class="clearfix">Manage comics</h1>
+	</div>
+	<form action="markComics" method="get" id="markComics">
+        <div id="markcomics" style="top:0;">
+		<select name="action" onChange="doAjaxCall('markComics',$(this),'table',true);" data-error="You didn't select any comics">
+  			<option disabled="disabled" selected="selected">Choose...</option>
+  			<option value="delete">Delete Series</option>
+                        <option value="metatag">MetaTag Series</option>
+                        <option value="pause">Pause Series</option>
+  			<option value="recheck">Recheck Files</option>
+  			<option value="refresh">Refresh Series</option>
+  			<option value="resume">Resume Series</option>
+		</select>
+		selected comics
+		<input type="hidden" value="Go">
+	</div>
+	<div class="table_wrapper">
+
+	<table class="display" id="manage_comic">
+		<thead>
+			<tr>
+				<th id="select"><input type="checkbox" onClick="toggle(this)" /></th>
+				<th id="albumart"></th>
+				<th id="name">Comic Name</th>
+				<th id="status">Status</th>
+                                <th id="stat_icon"></th>
+                                <th id="latest">Latest Issue</th>
+                                <th id="publisher">Publisher</th>
+                                <th id="have">Have</th>
+				<th id="lastupdated">Updated</th>
+			</tr>
+		</thead>
+		<tbody>
+		%for comic in comics:
+                        <%
+                                if comic['Status'] == 'Paused':
+                                        grade = 'X'
+                                elif comic['Status'] == 'Loading':
+                                        grade = 'L'
+                                elif comic['Status'] == 'Error':
+                                        grade = 'X'
+                                else:
+                                        grade = 'A'
+                        %>
+			<tr>
+				<td id="select"><input type="checkbox" name="${comic['ComicName']}[${comic['ComicYear']}]" value="${comic['ComicID']}" class="checkbox" /></td>
+				<td id="albumart"><div><img src="${comic['ComicImage']}" height="75" width="50"></div></td>
+				<td id="name"><span title="${comic['ComicSortName']}"></span><a href="comicDetails?ComicID=${comic['ComicID']}">${comic['ComicName']} (${comic['ComicYear']})</a></td>
+				<td id="status">${comic['recentstatus']}</td>
+                                <td id="stat_icon">
+                                %if comic['Status'] == 'Paused':
+                                    <img src="interfaces/default/images/pause-icon.png" alt="Paused" width="16" height="16" />
+                                %elif comic['Status'] == 'Loading':
+                                    <img src="interfaces/default/images/hourglass.png" alt="Loading" width="16" height="16" />
+                                %elif comic['Status'] == 'Error':
+                                    <img src="interfaces/default/images/cross.png" alt="Error" width="16" height="16" />
+                                %else:
+                                    <img src="interfaces/default/images/checkmark.png" alt="Active" width="16" height="16" />
+                                %endif
+                                </td>
+				<td id="latest">${comic['LatestIssue']} (${comic['LatestDate']})</td>
+                                <td id="publisher">${comic['ComicPublisher']}</td>
+                                <td id="have" valign="center"><span title="${comic['percent']}"></span><div class="progress-container"><div style="width:${comic['percent']}%"><div style="width:${comic['percent']}%"><div class="havetracks">${comic['haveissues']}/${comic['totalissues']}</div></div></div></td>
+				<td id="lastupdated">${comic['DateAdded']}</td>
+			</tr>
+		%endfor
+		</tbody>
+	</table>
+	</div>
+	</form>
+</%def>
+
+<%def name="headIncludes()">
+	<link rel="stylesheet" href="interfaces/default/css/data_table.css">
+</%def>
+
+<%def name="javascriptIncludes()">
+	<script src="js/libs/jquery.dataTables.min.js"></script>
+	<script>
+        function initThisPage() {
+                $('#manage_comic').dataTable(
+                        {
+                                "bDestroy": true,
+                                "aoColumnDefs": [
+                                  { 'bSortable': false, 'aTargets': [ 0, 1 ] }
+                                ],
+                                "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, 'All' ]],
+                                "oLanguage": {
+                                        "sLengthMenu":"Show _MENU_ results per page",
+                                        "sEmptyTable": "No results",
+                                        "sInfo":"Showing _START_ to _END_ of _TOTAL_ results",
+                                        "sInfoEmpty":"Showing 0 to 0 of 0 results",
+                                        "sInfoFiltered":"(filtered from _MAX_ total results)",
+                                        "sSearch" : ""},
+                                "bStateSave": true,
+                                "iDisplayLength": 25,
+                                "sPaginationType": "full_numbers",
+                                "aaSorting": [[2, 'desc'],[3, 'desc']]
+                        });
+                        resetFilters("comic");
+        }
+
+        $(document).ready(function(){
+                initThisPage();
+        });
+        $(window).load(function(){
+                initFancybox();
+        });
+        </script>
+
+</%def>

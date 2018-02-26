@@ -1,0 +1,99 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+
+#
+# The above will handle all files NOT found below
+#
+
+#
+## These files are text and should be normalized (Convert crlf => lf)
+#
+
+# git config
+.gitattributes	text
+.gitignore		text
+
+# Documentation
+*.md			text
+CHANGES			text
+
+# Startup script
+init.*			text
+
+# Various
+*.ini			text
+*.txt			text
+*.less			text
+*.h				text
+*.in			text
+
+# Python Source files
+*.pxd			text
+*.py 			text
+*.py3 			text
+*.pyw 			text
+*.pyx  			text
+
+# Mako template
+*.mako			text
+
+# Web file
+*.htm			text
+*.html			text
+*.css			text
+*.js			text
+*.xml			text
+
+#
+## These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
+#
+
+# Minified web files
+*.min.css		binary
+*.min.js		binary
+
+# Databases
+*.db			binary
+
+# Python Binary files
+*.p 			binary
+*.pkl 			binary
+*.pyc 			binary
+*.pyd			binary
+*.pyo 			binary
+
+# Python archives
+*.egg			binary
+*.whl			binary
+
+# Images
+*.png			binary
+*.jpg			binary
+*.jpeg			binary
+*.gif			binary
+*.ico			binary
+
+# Fonts
+*.svg			binary
+*.ttf			binary
+*.woff			binary
+*.woff2			binary
+*.eot			binary
+
+# Archives
+*.gz			binary
+*.zip			binary
+*.7z			binary
+*.rar			binary
+
+#linguist overides
+lib/* linguist-vendored
+lib/abda/ linguist-vendored=false
+lib/enyzme/__init__.py linguist-vendored=false
+lib/fake_useragent/ linguist-vendored=false
+lib/fanart/ linguist-vendored=false
+lib/feedparser/ linguist-vendored=false
