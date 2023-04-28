@@ -73,5 +73,5 @@ Unidecode == 0.04.21
 urllib3 ==1.26.5
 validators == 0.10
 webencodings == 0.5.1
-win-inet-pton == 1.0.1 ; os.name == 'nt' and python_version < '3.0'
+win-inet-pton ==1.1.0 ; os.name == 'nt' and python_version < '3.0'
 xmltodict == 0.11.0
