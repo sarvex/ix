@@ -136,7 +136,7 @@ dependencies {
     androidTestCompile "com.android.support:support-v13:${supportLibVersion}"
     instrumentationTestCompile 'junit:junit:4.12'
 
-    testCompile 'org.robolectric:robolectric:3.1.1'
+    testCompile 'org.robolectric:robolectric:3.8'
     testCompile 'junit:junit:4.12'
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
