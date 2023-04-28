@@ -24,7 +24,7 @@ hg+https://bitbucket.org/haypo/hachoir@708fdf64a982ba2e638aa59d94f143112066b8ce#
 # hg+https://bitbucket.org/haypo/hachoir@708fdf64a982ba2e638aa59d94f143112066b8ce#egg=hachoir-parser&subdirectory=hachoir-parser  # Unable to install
 html5lib == 1.0b10
 httplib2 ==0.19.0  # + tests folder from cf631a73e2f3f43897b65206127ced82382d35f5
-idna == 2.5
+idna ==2.10
 # IMDbPY == 5.1.1 --no-deps --global-option="--without-sqlobject" --global-option="--without-sqlalchemy"  # doesn't work because --no-deps isn't supported in reqs file context
 git+https://github.com/PiotrDabkowski/Js2Py.git@05e77f0d4ffe91ef418a93860e666962cfd193b8#egg=js2py
 git+https://github.com/joshmarshall/jsonrpclib.git@e3a3cdedc9577b25b91274815b38ba7f3bc43c68#egg=jsonrpclib
