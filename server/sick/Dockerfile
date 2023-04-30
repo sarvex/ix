@@ -1,4 +1,4 @@
-FROM python:2.7.13-alpine
+FROM python:3.11.3-alpine
 
 ARG SICKRAGE_VERSION
 
