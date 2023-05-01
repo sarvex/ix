@@ -16,7 +16,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "browser-env": "^3.1.0",
     "grunt": "^1.0.1",
     "grunt-bower-concat": "^1.0.0",
