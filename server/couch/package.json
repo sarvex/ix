@@ -22,7 +22,7 @@
     "grunt-contrib-watch": "~1.0.0",
     "grunt-env": "^1.0.0",
     "grunt-nose": "^1.0.0",
-    "grunt-shell-spawn": "^0.3.8",
+    "grunt-shell-spawn": "^0.4.0",
     "jit-grunt": "^0.10.0",
     "jshint-stylish": "^2.0.1",
     "time-grunt": "^1.2.1"
