@@ -19,7 +19,7 @@
     "grunt-contrib-jshint": "~3.2.0",
     "grunt-contrib-sass": "^2.0.0",
     "grunt-contrib-uglify": "~5.2.0",
-    "grunt-contrib-watch": "~1.0.0",
+    "grunt-contrib-watch": "~1.1.0",
     "grunt-env": "^1.0.0",
     "grunt-nose": "^1.0.0",
     "grunt-shell-spawn": "^0.4.0",
