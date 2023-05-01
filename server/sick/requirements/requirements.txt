@@ -1,5 +1,5 @@
 #! adba == ???  # <Modified + not on PYPI - https://github.com/lad1337/adba>
-babelfish == 0.5.5
+babelfish ==0.6.0
 backports_abc == 0.5
 backports.ssl-match-hostname ==3.7.0.1
 beautifulsoup4 ==4.12.2
