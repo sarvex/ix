@@ -5904,9 +5904,9 @@ smart-buffer@^4.2.0:
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
 snyk@^1.28.1:
-  version "1.1148.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1148.0.tgz#fe4a46750ea1a0f98427806a0ace94a2574dd265"
-  integrity sha512-zBW2NDJqwLqna4ZwCa7Bm3MGn38+7Err/FAaEGpgU75tJrZ/JQD9nbvxRuNEWzXmZzB9aM/I7eUJ3a3Wi8bFOA==
+  version "1.1150.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1150.0.tgz#0f56e8a3d9a15fff89390f9613acfde6a50822f1"
+  integrity sha512-jwDKDoR2wEko/NXN8FHsJi+w03R3vK/npImnpYc78SX3eGWSc4WCCvIGM2TsYHbXVvU8HsOr5m2lvAwF3v8rbw==
   dependencies:
     "@sentry/node" "^7.36.0"
     global-agent "^3.0.0"
