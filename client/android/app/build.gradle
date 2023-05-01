@@ -134,10 +134,10 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
     androidTestCompile "com.android.support:support-v13:${supportLibVersion}"
-    instrumentationTestCompile 'junit:junit:4.12'
+    instrumentationTestCompile 'junit:junit:4.13.2'
 
     testCompile 'org.robolectric:robolectric:4.10'
-    testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.13.2'
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
