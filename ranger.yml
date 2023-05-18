@@ -1,0 +1,73 @@
+# in .github/ranger.yml
+default:
+  close:
+    comment: ⚠️ This has been marked to be closed in $DELAY.
+    delay: 7d
+  comment:
+    message: '⚠️ This has been marked $LABEL by the maintainers'
+labels:
+  duplicate:
+    action: close
+    delay: 1d
+    comment: This issue has been marked as a duplicate. Closing in $DELAY . . .
+  wontfix: close
+  invalid: close
+  stale:
+    action: close
+    comment: false
+  'merge when passing': merge
+  'squash when passing': merge
+  'rebase when passing': merge
+  'help wanted': comment
+  reminder:
+    action: comment
+    delay: 1d
+    message: You asked to remind you about this $DELAY ago
+  # Make all PRs labeled docs get automatically merged
+  'approved (squash)': 
+    action: merge
+  # or else just set merge directly without nesting
+  docs: merge
+merges:
+  - action: delete_branch
+commits:
+  - action: label
+    pattern: BREAKING CHANGE
+    labels: 
+      - Major Version
+	- action: label
+	  pattern: /perf.+?:/
+	  labels: 
+       - Major Version
+	- action: label
+	  pattern: /feat.+?:/
+	  labels: 
+	    - Minor Version
+	- action: label
+	  pattern: /fix.+?:/
+	  labels: 
+	    - Patch Version
+  - action: label
+    pattern: /merge when passing/i
+    labels:
+      - merge when passing
+  - action: label
+    pattern: /squash when passing/i
+    labels:
+      - squash when passing
+  - action: label
+    pattern: /rebase when passing/i
+    labels:
+      - rebase when passing
+comments:
+  - action: label
+    pattern: /duplicate of/i
+    labels:
+      - duplicate
+  - action: label
+    pattern: /remind/i
+    labels:
+      - reminder
+  - action: delete_comment
+    pattern: /remind/i
+  
