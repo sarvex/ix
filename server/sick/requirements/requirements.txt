@@ -4,7 +4,7 @@ backports_abc == 0.5
 backports.ssl-match-hostname ==3.7.0.1
 beautifulsoup4 ==4.12.2
 bencode == 1.0  # Made vanilla with https://github.com/SickRage/SickRage/commit/8c4278a52bf30a02914aa85c9b9ba5ad61021bea. A newer version (fork) is available: https://github.com/fuzeman/bencode.py
-cachecontrol ==0.13.0
+cachecontrol ==0.13.1
 # certgen.py == d52975cef3a36e18552aeb23de7c06aa73d76454  # Source: https://github.com/pyca/pyopenssl/blob/master/examples/certgen.py
 certifi ==2023.5.7
 cfscrape ==2.1.1  # rq.filter: <1.8.0
