@@ -43,7 +43,7 @@ putio.py ==8.7.0
 pyasn1 ==0.5.0  # + LICENSE
 PyGithub ==2.1.1
 PyJWT ==2.8.0
-pymediainfo ==6.0.1  # as an .egg file, loaded by pkg_resources
+pymediainfo ==6.1.0  # as an .egg file, loaded by pkg_resources
 pynma == 1.0
 PySocks ==1.7.1
 pysrt ==1.1.2
