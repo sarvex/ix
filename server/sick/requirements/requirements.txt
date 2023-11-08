@@ -31,7 +31,7 @@ git+https://github.com/joshmarshall/jsonrpclib.git@e3a3cdedc9577b25b91274815b38b
 # libgrowl  # <Custom: by Sick-Beard's midgetspy. Some of the code is from https://github.com/kfdm/gntp>
 # libtrakt  # <Custom> Just a small note - https://github.com/fuzeman/trakt.py is a great implementation of Trakt.tv's API, if needed
 lockfile ==0.12.2
-Mako ==1.2.4
+Mako ==1.3.0
 markdown2 ==2.4.10
 MarkupSafe ==2.1.3
 ndg-httpsclient ==0.5.1
