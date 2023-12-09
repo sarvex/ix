@@ -123,7 +123,7 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.7.5'
     compile 'com.squareup.picasso:picasso:2.71828'
     compile 'de.greenrobot:eventbus:2.4.1'
-    compile 'org.jmdns:jmdns:3.5.8'
+    compile 'org.jmdns:jmdns:3.5.9'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'at.blogc:expandabletextview:1.0.5'
     compile 'com.sothree.slidinguppanel:library:3.4.0'
