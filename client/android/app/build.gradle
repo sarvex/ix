@@ -118,7 +118,7 @@ dependencies {
     compile "com.android.support:support-v13:${supportLibVersion}"
     compile "com.android.support:design:${supportLibVersion}"
 
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
     compile 'com.jakewharton:butterknife:10.2.3'
     compile 'com.squareup.okhttp:okhttp:2.7.5'
     compile 'com.squareup.picasso:picasso:2.71828'
