@@ -269,55 +269,55 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@sentry-internal/tracing@7.116.0":
-  version "7.116.0"
-  resolved "https://registry.yarnpkg.com/@sentry-internal/tracing/-/tracing-7.116.0.tgz#af3e4e264c440aa5525b5877a10b9a0f870b40e3"
-  integrity sha512-y5ppEmoOlfr77c/HqsEXR72092qmGYS4QE5gSz5UZFn9CiinEwGfEorcg2xIrrCuU7Ry/ZU2VLz9q3xd04drRA==
+"@sentry-internal/tracing@7.119.2":
+  version "7.119.2"
+  resolved "https://registry.yarnpkg.com/@sentry-internal/tracing/-/tracing-7.119.2.tgz#f1f09e0fd727b00366f4ac24a5b427c1ed117a1a"
+  integrity sha512-V2W+STWrafyGJhQv3ulMFXYDwWHiU6wHQAQBShsHVACiFaDrJ2kPRet38FKv4dMLlLlP2xN+ss2e5zv3tYlTiQ==
   dependencies:
-    "@sentry/core" "7.116.0"
-    "@sentry/types" "7.116.0"
-    "@sentry/utils" "7.116.0"
+    "@sentry/core" "7.119.2"
+    "@sentry/types" "7.119.2"
+    "@sentry/utils" "7.119.2"
 
-"@sentry/core@7.116.0":
-  version "7.116.0"
-  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.116.0.tgz#7cff43134878a696b2b3b981ae384ec3db9ac8c3"
-  integrity sha512-J6Wmjjx+o7RwST0weTU1KaKUAlzbc8MGkJV1rcHM9xjNTWTva+nrcCM3vFBagnk2Gm/zhwv3h0PvWEqVyp3U1Q==
+"@sentry/core@7.119.2":
+  version "7.119.2"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.119.2.tgz#03f7b0e220fdf3c45b35aac2cc413e2e34434cc2"
+  integrity sha512-hQr3d2yWq/2lMvoyBPOwXw1IHqTrCjOsU1vYKhAa6w9vGbJZFGhKGGE2KEi/92c3gqGn+gW/PC7cV6waCTDuVA==
   dependencies:
-    "@sentry/types" "7.116.0"
-    "@sentry/utils" "7.116.0"
+    "@sentry/types" "7.119.2"
+    "@sentry/utils" "7.119.2"
 
-"@sentry/integrations@7.116.0":
-  version "7.116.0"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.116.0.tgz#b641342249da76cd2feb2fb5511424b66f967449"
-  integrity sha512-UZb60gaF+7veh1Yv79RiGvgGYOnU6xA97H+hI6tKgc1uT20YpItO4X56Vhp0lvyEyUGFZzBRRH1jpMDPNGPkqw==
+"@sentry/integrations@7.119.2":
+  version "7.119.2"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.119.2.tgz#50d85b361e20c7f4d532a09b3a4e6783fcdc37e0"
+  integrity sha512-dCuXKvbUE3gXVVa696SYMjlhSP6CxpMH/gl4Jk26naEB8Xjsn98z/hqEoXLg6Nab73rjR9c/9AdKqBbwVMHyrQ==
   dependencies:
-    "@sentry/core" "7.116.0"
-    "@sentry/types" "7.116.0"
-    "@sentry/utils" "7.116.0"
+    "@sentry/core" "7.119.2"
+    "@sentry/types" "7.119.2"
+    "@sentry/utils" "7.119.2"
     localforage "^1.8.1"
 
 "@sentry/node@^7.36.0":
-  version "7.116.0"
-  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-7.116.0.tgz#199c304e203f35ca0e814fb7fc8a9b3f30b2c612"
-  integrity sha512-HB/4TrJWbnu6swNzkid+MlwzLwY/D/klGt3R0aatgrgWPo2jJm6bSl4LUT39Cr2eg5I1gsREQtXE2mAlC6gm8w==
+  version "7.119.2"
+  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-7.119.2.tgz#00e82ac0930a068a9538f255b11bdc3b0d98f776"
+  integrity sha512-TPNnqxh+Myooe4jTyRiXrzrM2SH08R4+nrmBls4T7lKp2E5R/3mDSe/YTn5rRcUt1k1hPx1NgO/taG0DoS5cXA==
   dependencies:
-    "@sentry-internal/tracing" "7.116.0"
-    "@sentry/core" "7.116.0"
-    "@sentry/integrations" "7.116.0"
-    "@sentry/types" "7.116.0"
-    "@sentry/utils" "7.116.0"
+    "@sentry-internal/tracing" "7.119.2"
+    "@sentry/core" "7.119.2"
+    "@sentry/integrations" "7.119.2"
+    "@sentry/types" "7.119.2"
+    "@sentry/utils" "7.119.2"
 
-"@sentry/types@7.116.0":
-  version "7.116.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.116.0.tgz#0be3434e7e53c86db4993e668af1c3a65bfb7519"
-  integrity sha512-QCCvG5QuQrwgKzV11lolNQPP2k67Q6HHD9vllZ/C4dkxkjoIym8Gy+1OgAN3wjsR0f/kG9o5iZyglgNpUVRapQ==
+"@sentry/types@7.119.2":
+  version "7.119.2"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.119.2.tgz#e4c6b94ff868f45d6c0ed0f3f3e90e115d8be5cc"
+  integrity sha512-ydq1tWsdG7QW+yFaTp0gFaowMLNVikIqM70wxWNK+u98QzKnVY/3XTixxNLsUtnAB4Y+isAzFhrc6Vb5GFdFeg==
 
-"@sentry/utils@7.116.0":
-  version "7.116.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.116.0.tgz#f32463ab10f76f464274233a9df202e5357d17ff"
-  integrity sha512-Vn9fcvwTq91wJvCd7WTMWozimqMi+dEZ3ie3EICELC2diONcN16ADFdzn65CQQbYwmUzRjN9EjDN2k41pKZWhQ==
+"@sentry/utils@7.119.2":
+  version "7.119.2"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.119.2.tgz#a2abd8f3c070ac7d7a7bb32bce2cc27b5c34098f"
+  integrity sha512-TLdUCvcNgzKP0r9YD7tgCL1PEUp42TObISridsPJ5rhpVGQJvpr+Six0zIkfDUxerLYWZoK8QMm9KgFlPLNQzA==
   dependencies:
-    "@sentry/types" "7.116.0"
+    "@sentry/types" "7.119.2"
 
 "@sigstore/bundle@^1.1.0":
   version "1.1.0"
@@ -6091,10 +6091,15 @@ semver@^6.0.0, semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.0.0, semver@^7.1.1, semver@^7.3.2, semver@^7.3.5, semver@^7.3.7, semver@^7.5.4, semver@^7.6.0:
+semver@^7.0.0, semver@^7.1.1, semver@^7.3.5, semver@^7.3.7, semver@^7.5.4, semver@^7.6.0:
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
   integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
+
+semver@^7.3.2:
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.3.tgz#980f7b5550bc175fb4dc09403085627f9eb33143"
+  integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
 
 semver@^7.5.3:
   version "7.5.4"
@@ -6220,9 +6225,9 @@ smart-buffer@^4.2.0:
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
 snyk@^1.28.1:
-  version "1.1291.1"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1291.1.tgz#96aede5f4dccfd07c270190151a989b8cccfb3fb"
-  integrity sha512-a+phPmN0HrXzf81fx2qcaAnbZ7rK3WG1OhOHXoBHvRUIlAKIsoAozDSlWPSs0OuQI1hpQL/15O7xUFo3kDwrew==
+  version "1.1294.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1294.0.tgz#7ad0404624d21df9e490c16de59b9857488da0cd"
+  integrity sha512-4RBj3Lfccz5+6L2Kw9bt7icF+ex3antwt9PkSl2oEulI7mgqvc8VUFLnezg8c6PY60IPM9DrSSmNjXBac10I3Q==
   dependencies:
     "@sentry/node" "^7.36.0"
     global-agent "^3.0.0"
