@@ -14,7 +14,7 @@ decorator ==5.1.1
 git+https://bitbucket.org/zzzeek/dogpile.cache.git@229615be466d00c9c135a90d8965679ab3e4edaa#egg=dogpile.cache
 dogpile.core == 0.4.1
 enum34 ==1.1.10
-enzyme == 0.4.1
+enzyme ==0.5.2
 fake-useragent ==1.5.1  # [NOTE] there's a `ua.json` file that's used by sickbeard.common, should be moved to a better location.
 git+https://github.com/kurtmckee/feedparser.git@6.0.11#egg=feedparser
 futures ==3.4.0
