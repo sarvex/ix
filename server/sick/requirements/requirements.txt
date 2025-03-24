@@ -40,7 +40,7 @@ git+https://github.com/pygobject/pgi.git@38f834902247a5851cb4c72ba018f160ae26d61
 #! pkg_resources.py  # Copied from setuptools and looks to be modified. See readme for more info.
 profilehooks ==1.12.0
 putio.py ==8.7.0
-pyasn1 ==0.6.0  # + LICENSE
+pyasn1 ==0.6.1  # + LICENSE
 PyGithub ==2.3.0
 PyJWT ==2.10.1
 pymediainfo ==6.1.0  # as an .egg file, loaded by pkg_resources
